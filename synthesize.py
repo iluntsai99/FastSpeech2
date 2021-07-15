@@ -13,7 +13,6 @@ from utils.model import get_model, get_vocoder
 from utils.tools import to_device, synth_samples
 from dataset import TextDataset
 from text import text_to_sequence
-from textblob import TextBlob
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -106,7 +105,6 @@ def synthesize(model, step, configs, vocoder, batchs, control_values):
                 model_config,
                 preprocess_config,
                 train_config["path"]["result_path"],
-                step
             )
 
 
@@ -204,13 +202,9 @@ if __name__ == "__main__":
     if args.mode == "single":
         ids = raw_texts = [args.text[:100]]
         speakers = np.array([args.speaker_id])
-        lang = preprocess_config["preprocessing"]["text"]["language"]
-        if lang != "en" and lang != "zh":
-            b = TextBlob(ids[0])
-            lang = b.detect_language()
-        if lang == 'en':
+        if preprocess_config["preprocessing"]["text"]["language"] == "en":
             texts = np.array([preprocess_english(args.text, preprocess_config)])
-        elif "zh" in lang:
+        elif preprocess_config["preprocessing"]["text"]["language"] == "zh":
             texts = np.array([preprocess_mandarin(args.text, preprocess_config)])
         text_lens = np.array([len(texts[0])])
         batchs = [(ids, raw_texts, speakers, texts, text_lens, max(text_lens))]
