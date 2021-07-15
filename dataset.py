@@ -82,7 +82,11 @@ class Dataset(Dataset):
             text = []
             raw_text = []
             for line in f.readlines():
-                n, s, t, r = line.strip("\n").split("|")
+                try:
+                    n, s, t, r, lang = line.strip("\n").split("|")
+                except:
+                    print(line)
+                    n, s, t, r = line.strip("\n").split("|")
                 name.append(n)
                 speaker.append(s)
                 text.append(t)
