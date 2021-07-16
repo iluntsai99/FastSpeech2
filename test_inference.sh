@@ -25,12 +25,12 @@ then
     python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 195 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
     python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 195 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
     # English speaker
-    # python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 364 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
-    # python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 364 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
-    # python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 412 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
-    # python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 412 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
-    # python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 248 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
-    # python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 248 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 364 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 364 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 412 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 412 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "海水退潮就知道誰沒穿褲子" --speaker_id 248 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
+    python3 synthesize.py --text "educated people are hot. why? because they have more degrees!" --speaker_id 248 --restore_step $2 --mode single -p config/MandAndEng/preprocess.yaml -m config/MandAndEng/model.yaml -t config/MandAndEng/train.yaml
 else
     echo "Wrong language!"
 fi
