@@ -186,6 +186,10 @@ if __name__ == "__main__":
     train_config = yaml.load(open(args.train_config, "r"), Loader=yaml.FullLoader)
     configs = (preprocess_config, model_config, train_config)
 
+    # Load speaker dictionary
+    with open(os.path.join(preprocess_config["path"]["preprocessed_path"], "speakers.json"), 'r') as json_file:
+        speaker2id = json.load(json_file)
+
     # Get model
     model = get_model(args, configs, device, train=False)
 
@@ -203,7 +207,7 @@ if __name__ == "__main__":
         )
     if args.mode == "single":
         ids = raw_texts = [args.text[:100]]
-        speakers = np.array([args.speaker_id])
+        speakers = np.array([speaker2id(args.speaker_id)])
         lang = preprocess_config["preprocessing"]["text"]["language"]
         if lang != "en" and lang != "zh":
             b = TextBlob(ids[0])
