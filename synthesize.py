@@ -15,6 +15,9 @@ from dataset import TextDataset
 from text import text_to_sequence
 from textblob import TextBlob
 
+import os
+import json
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
@@ -135,8 +138,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--speaker_id",
-        type=int,
-        default=0,
+        type=str,
+        default='0',
         help="speaker ID for multi-speaker synthesis, for single-sentence mode only",
     )
     parser.add_argument(
@@ -207,7 +210,7 @@ if __name__ == "__main__":
         )
     if args.mode == "single":
         ids = raw_texts = [args.text[:100]]
-        speakers = np.array([speaker2id(args.speaker_id)])
+        speakers = np.array([speaker2id[args.speaker_id]])
         lang = preprocess_config["preprocessing"]["text"]["language"]
         if lang != "en" and lang != "zh":
             b = TextBlob(ids[0])

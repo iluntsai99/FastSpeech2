@@ -200,7 +200,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
             stats,
             ["Synthetized Spectrogram"],
         )
-        plt.savefig(os.path.join(path, "zz_{}_{}_{}.png".format(id2speaker(speaker), step, basename.replace(' ', '')[:10])))
+        plt.savefig(os.path.join(path, "zz_{}_{}_{}.png".format(id2speaker[str(int(speaker))], step, basename.replace(' ', '')[:10])))
         plt.close()
 
     from .model import vocoder_infer
@@ -213,7 +213,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
 
     sampling_rate = preprocess_config["preprocessing"]["audio"]["sampling_rate"]
     for wav, basename in zip(wav_predictions, basenames):
-        wavfile.write(os.path.join(path, "{}_{}_{}.wav".format(id2speaker(speaker), step, basename.replace(' ', '')[:20])), sampling_rate, wav)
+        wavfile.write(os.path.join(path, "{}_{}_{}.wav".format(id2speaker[str(int(speaker))], step, basename.replace(' ', '')[:20])), sampling_rate, wav)
 
 
 def plot_mel(data, stats, titles):
